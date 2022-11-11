@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog</title>
+</head>
+<body>
+    <img id="dogs"></img>
+    <script>
+       /* async function mostrarGatinho(){
+            const gatinho = await fetch("https://api.thecatapi.com/v1/images/search")
+            const gato = await gatinho.json()
+            return gato
+        }
+        mostrarGatinho()
+        .then((dados)=>{
+            console.log(dados)
+            const foto = document.getElementById('foto_gatinho')
+            foto.innerHTML= `<img src=${dados[0].url}>`
+        }) */
+        fetch('https://dog.ceo/api/breeds/image/random').then(Response => {
+            Response.json().then(data =>{
+                console.log(data.message)
+                document.getElementById('dogs').setAttribute('src', data.message)
+            })
+        })
+    </script>
+</body>
+</html>
